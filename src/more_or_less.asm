@@ -49,6 +49,12 @@ main:
 	; ARGS ( 0 ) : (  )
 	; RETURN     : *IGNORE RETURN*
 
+	mov rax, $sys_write
+	mov rdi, $fd_stdout
+	mov rsi, $welcome_msg
+	mov rdx, $welcome_msg_len
+	syscall
+
 	; random_num = random_number(1000)
 	mov rdi, 1000
 	call random_number
@@ -211,7 +217,7 @@ exit:
 section .data
 	; init'd data sec
 	
-	welcome_msg	db 'Welcome to more or less, the most original game in the far west', 0x0A
+	welcome_msg	db 'Welcome to more or less, the most original game in the far west!', 0x0A
 	welcome_msg_len	equ $-welcome_msg
 
 	number_above_msg	db 'Number is higher', 0x0A
