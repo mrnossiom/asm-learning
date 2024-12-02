@@ -1,0 +1,4 @@
+# Exclude intermediary files
+src/*
+!src/*.asm
+!src/*.c
